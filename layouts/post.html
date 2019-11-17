@@ -1,23 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-</head>
+  {{> head }}
 <body>
-  <header>
-    <p>
-      <a href="/">Home</a>
-    </p>
+  <div class="column"
+    {{> header }}
 
-  </header>
-  <h1>{{ title }}</h1>
-  <h3>{{ date }}</h3>
-  {{{ contents }}}
-
-  <!-- <footer> -->
-  <!--   <p>Generated with {{ generator }} &mdash; <a href="{{ url }}">{{ url }}</a></p> -->
-  <!-- </footer> -->
+    <h2>{{ title }}</h2>
+    <h3>{{ date }}</h3>
+    {{{ contents }}}
+  </div>
 </body>
 </html>

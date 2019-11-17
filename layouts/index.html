@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  {{> head }}
+<body>
+  <div class="column"
+    {{> header }}
+
+    <h2>Hi! 👋 </h2>
+    <p class="headline">Stories about building tech, starting a side business, and lifting weights.</p>
+
+    {{{ contents }}}
+
+    {{#each articles}}
+      <div class="article-link-block">
+        <a href={{path}}>
+          <h3>{{title}}</h3>
+        </a>
+        <time>{{date}}</time>
+        <p>{{blurb}}</p>
+      </div>
+    {{/each}}
+  </div>
+</body>
+</html>

@@ -1,11 +1,14 @@
 {
   "name": "static-site-example",
   "scripts": {
-    "build": "node ./index.js"
+    "build": "node ./index.js",
+    "prepush": "yarn build",
+    "push": "gh-pages -d master -d build"
   },
   "private": true,
   "dependencies": {
     "eslint": "^6.6.0",
+    "gh-pages": "^2.1.1",
     "handlebars": "^4.0.5",
     "highlight.js": "^9.16.2",
     "metalsmith": "^2.1.0",

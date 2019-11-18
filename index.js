@@ -6,6 +6,7 @@ const scss = require('metalsmith-sass');
 const collections = require('metalsmith-collections');
 const handlebars = require('handlebars');
 const dateFormatter = require('metalsmith-date-formatter');
+const inlineCss = require('metalsmith-inline-css');
 // TODO: RSS feeds
 
 handlebars.registerHelper('links', function(items, options) {
@@ -31,7 +32,7 @@ Metalsmith(__dirname)
   }))
   .use(collections({
     articles: {
-      pattern: ['*.md', '!index.md'],
+      pattern: ['posts/*.md', '**/!index.md'],
       sortBy: 'date',
       reverse: true
     },
@@ -47,7 +48,9 @@ Metalsmith(__dirname)
       return require('highlight.js').highlightAuto(code).value;
     },
   }))
-  .use(permalinks())
+  .use(permalinks({
+    pattern: ':title',
+  }))
   .use(layouts({
     engine: 'handlebars',
     partials: {
@@ -55,6 +58,7 @@ Metalsmith(__dirname)
       head: 'partials/head'
     },
   }))
+  .use(inlineCss())
   // .use((x, ...rest) => {
   //   console.log(x, rest);
   //   return x;

@@ -1405,6 +1405,13 @@ metalsmith-date-formatter@^1.0.2:
     lodash.transform "^3.0.3"
     moment "^2.10.3"
 
+metalsmith-inline-css@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/metalsmith-inline-css/-/metalsmith-inline-css-1.0.6.tgz#c9371eb6be847c55a42f7ae734c8f78b2fed80d9"
+  integrity sha512-1iZ38WuQ/9srFfOZ48V3VsM5nJslPhOsAJ+GTXI2tgKUIJIxAB0TaGQmwz1T1X9DBcLmoXqs9g79NKNysLZLiw==
+  dependencies:
+    debug "^4.0.1"
+
 metalsmith-layouts@^1.4.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/metalsmith-layouts/-/metalsmith-layouts-1.8.1.tgz#a365d39939d9146cdfe51fadee7d875573fccbdc"

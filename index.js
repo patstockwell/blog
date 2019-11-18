@@ -7,8 +7,8 @@ const collections = require('metalsmith-collections');
 const handlebars = require('handlebars');
 const dateFormatter = require('metalsmith-date-formatter');
 const inlineCss = require('metalsmith-inline-css');
-const serve = require('metalsmith-serve');
-const watch = require('metalsmith-watch');
+// const serve = require('metalsmith-serve');
+// const watch = require('metalsmith-watch');
 // TODO: RSS feeds
 
 handlebars.registerHelper('links', function(items, options) {
@@ -61,16 +61,16 @@ Metalsmith(__dirname)
     },
   }))
   .use(inlineCss())
-  .use(serve({
-    port: 8081,
-    verbose: true
-  }))
-  .use(watch({
-    paths: {
-      '${source}/**/*': true, // ${source} is replaced by metalsmith.source()
-      'layout/**/*': true,
-    }
-  }))
+  // .use(serve({
+  //   port: 8081,
+  //   verbose: true
+  // }))
+  // .use(watch({
+  //   paths: {
+  //     '${source}/**/*': true, // ${source} is replaced by metalsmith.source()
+  //     'layout/**/*': true,
+  //   }
+  // }))
   // .use((x, ...rest) => {
   //   console.log(x, rest);
   //   return x;

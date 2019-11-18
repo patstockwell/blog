@@ -10,3 +10,4 @@ Hi, my name is Patrick. For most of 2019 I've been developing a web app for trac
 
 So it's about time that this gym app has a blog to share all the learnings that come with starting your own side project.
 
+My next post I'll be sharing how I set up this blog and the tech behind it. Come back and say hi soon!

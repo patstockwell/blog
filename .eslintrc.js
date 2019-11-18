@@ -80,7 +80,6 @@ module.exports = {
         "jsx-quotes": "error",
         "key-spacing": "error",
         "keyword-spacing": "error",
-        "line-comment-position": "error",
         "linebreak-style": [
             "error",
             "unix"
@@ -121,7 +120,6 @@ module.exports = {
         "no-implicit-globals": "error",
         "no-implied-eval": "error",
         "no-import-assign": "error",
-        "no-inline-comments": "error",
         "no-invalid-this": "error",
         "no-iterator": "error",
         "no-label-var": "error",
@@ -162,8 +160,6 @@ module.exports = {
         "no-spaced-func": "error",
         "no-sync": "error",
         "no-tabs": "error",
-        "no-template-curly-in-string": "error",
-        "no-ternary": "error",
         "no-throw-literal": "error",
         "no-trailing-spaces": "error",
         "no-undef-init": "error",

@@ -49,7 +49,9 @@ Metalsmith(__dirname)
     },
   }))
   .use(permalinks({
-    pattern: ':title',
+    pattern: ':slug',
+    relative: false,
+    duplicatesFail: true,
   }))
   .use(layouts({
     engine: 'handlebars',

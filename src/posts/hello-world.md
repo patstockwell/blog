@@ -1,6 +1,7 @@
 ---
 layout: post.html
 title: 'Hello, World!'
+slug: hello-world
 date: 2019-11-16
 tags: ['js']
 blurb: Welcome to the blog

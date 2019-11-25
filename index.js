@@ -8,6 +8,7 @@ const handlebars = require('handlebars');
 const dateFormatter = require('metalsmith-date-formatter');
 const inlineCss = require('metalsmith-inline-css');
 // TODO: RSS feeds
+// TODO: word count - https://github.com/majodev/metalsmith-word-count
 
 handlebars.registerHelper('links', function(items, options) {
   console.log('---------------------inside', items, options);

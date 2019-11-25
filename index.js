@@ -25,6 +25,10 @@ Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
   .clean(true)
+  // .use((x) => {
+  //   console.log(x['posts/hello-world.md'].contents);
+  //   return x;
+  // })
   .use(scss({
     outputDir: function(originalPath) {
       return originalPath.replace('scss', 'css');
@@ -61,10 +65,6 @@ Metalsmith(__dirname)
     },
   }))
   .use(inlineCss())
-  // .use((x, ...rest) => {
-  //   console.log(x, rest);
-  //   return x;
-  // })
   .build(function(err) {
     if (err) { throw err; }
   });

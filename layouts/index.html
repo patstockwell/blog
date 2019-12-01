@@ -5,17 +5,19 @@
   <div class="column"
     {{> header }}
 
-    <h2 class="headline">Stories about writing code, starting a side business, and lifting weights.</h2>
+    <div class="margin8">
+      <h2 class="headline">Stories about writing code, starting a side business, and lifting weights.</h2>
 
-    {{#each articles}}
-      <div class="article-link-block">
-        <a href="/{{path}}/" >
-          <h3>{{title}}</h3>
-        </a>
-        <time>{{date}}</time>
-        <p>{{blurb}}</p>
-      </div>
-    {{/each}}
+      {{#each articles}}
+        <div class="article-link-block">
+          <a href="/{{path}}/" >
+            <h3>{{title}}</h3>
+          </a>
+          <time>{{date}}</time>
+          <p>{{blurb}}</p>
+        </div>
+      {{/each}}
+    </div>
   </div>
 </body>
 </html>

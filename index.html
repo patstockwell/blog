@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Harder Better Faster Fitter</title>
     <meta name="description" content="Blog for hbff. Posts about gym, fitness, javascript, web apps, and hacking.">
-    <style>.hljs{display:block;overflow-x:auto;padding:0.5em;background:#23241f}.hljs,.hljs-tag,.hljs-subst{color:#f8f8f2}.hljs-strong,.hljs-emphasis{color:#a8a8a2}.hljs-bullet,.hljs-quote,.hljs-number,.hljs-regexp,.hljs-literal,.hljs-link{color:#ae81ff}.hljs-code,.hljs-title,.hljs-section,.hljs-selector-class{color:#a6e22e}.hljs-strong{font-weight:bold}.hljs-emphasis{font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-name,.hljs-attr{color:#f92672}.hljs-symbol,.hljs-attribute{color:#66d9ef}.hljs-params,.hljs-class .hljs-title{color:#f8f8f2}.hljs-string,.hljs-type,.hljs-built_in,.hljs-builtin-name,.hljs-selector-id,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-addition,.hljs-variable,.hljs-template-variable{color:#e6db74}.hljs-comment,.hljs-deletion,.hljs-meta{color:#75715e}body pre{background:#222;border-radius:10px;padding:16px;font-size:1.2em;color:white;overflow:scroll}body code{font-size:1.1em;padding:0.2em 0.4em;margin:0;background-color:rgba(27,31,35,0.05);border-radius:3px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif;margin:0;color:#222}body a{text-decoration:none;color:#6702ff;font-weight:600}body a h1{font-size:1.3em;font-weight:800;text-decoration:underline;background:#6702ff;padding:12px;color:white;margin:0}body h2{font-size:2.5em;font-family:'Calistoga','Helvetica Neue',Helvetica,Arial,sans-serif}body time{font-style:italic;color:gray;font-size:0.9em}body time ~ p{margin-top:10px}body ol,body ul,body p{font-size:1.1em;line-height:1.3em}body img{display:block;margin:60px auto;max-width:100%}body time{display:block}body div.column{max-width:600px;margin:0 auto 100px}body div.column div.margin8{margin:8px}body div.article-link-block{margin:60px 0}
+    <style>.hljs{display:block;overflow-x:auto;padding:0.5em;background:#23241f}.hljs,.hljs-tag,.hljs-subst{color:#f8f8f2}.hljs-strong,.hljs-emphasis{color:#a8a8a2}.hljs-bullet,.hljs-quote,.hljs-number,.hljs-regexp,.hljs-literal,.hljs-link{color:#ae81ff}.hljs-code,.hljs-title,.hljs-section,.hljs-selector-class{color:#a6e22e}.hljs-strong{font-weight:bold}.hljs-emphasis{font-style:italic}.hljs-keyword,.hljs-selector-tag,.hljs-name,.hljs-attr{color:#f92672}.hljs-symbol,.hljs-attribute{color:#66d9ef}.hljs-params,.hljs-class .hljs-title{color:#f8f8f2}.hljs-string,.hljs-type,.hljs-built_in,.hljs-builtin-name,.hljs-selector-id,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-addition,.hljs-variable,.hljs-template-variable{color:#e6db74}.hljs-comment,.hljs-deletion,.hljs-meta{color:#75715e}body pre{background:#222;border-radius:10px;padding:16px;font-size:1.2em;color:white;overflow:scroll}body code{font-size:1.1em;margin:0;background-color:rgba(27,31,35,0.05);border-radius:3px}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif;margin:0;color:#222}body a{text-decoration:none;color:#6702ff;font-weight:600}body a h1{font-size:1.3em;font-weight:800;text-decoration:underline;background:#6702ff;padding:12px;color:white;margin:0}body h2{font-size:2.5em;font-family:'Calistoga','Helvetica Neue',Helvetica,Arial,sans-serif}body time{font-style:italic;color:gray;font-size:0.9em}body time ~ p{margin-top:10px}body ol,body ul,body p{font-size:1.1em;line-height:1.3em}body img{display:block;margin:60px auto;max-width:100%}body time{display:block}body div.column{max-width:600px;margin:0 auto 100px}body div.column div.margin8{margin:8px}body div.article-link-block{margin:60px 0}
 </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -25,6 +25,9 @@
     </header>
 
     <div class="margin8">
+      <p><strong>Looking for the gym app? It's moved to <a href="https://palastripe.com">palastripe.com</a></strong></p>
+      <p>If you would like your workout data from hbff, it is still here in local storage. Click here to copy it to the clipboard:</p>
+      <button onClick="getLocalStorageWorkouts()">Retrieve workout data</button>
       <h2 class="headline">Stories about writing code, starting a side business, and lifting weights.</h2>
 
         <div class="article-link-block">
@@ -43,5 +46,44 @@
         </div>
     </div>
   </div>
+  <script>
+    function getLocalStorageWorkouts() {
+      const workouts = localStorage.getItem('HBFF_HISTORY');
+
+      // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
+      function fallbackCopyTextToClipboard(text) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Fallback: Copying command was ' + msg);
+        } catch (err) {
+          console.error('Fallback: Oops, unable to copy', err);
+        }
+
+        document.body.removeChild(textArea);
+      }
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(workouts).then(function() {
+          console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+          console.error('Async: Could not copy: ', err);
+        });
+      } else {
+        fallbackCopyTextToClipboard(workouts);
+      }
+    };
+  </script>
 </body>
 </html>

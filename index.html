@@ -25,9 +25,11 @@
     </header>
 
     <div class="margin8">
-      <p><strong>Looking for the gym app? It's moved to <a href="https://palastripe.com" target="_blank">palastripe.com</a></strong></p>
-      <p>If you would like your workout data from hbff, it is still here in local storage. Click here to copy it to the clipboard:</p>
-      <button onClick="getLocalStorageWorkouts()">Retrieve workout data</button>
+      <p>
+        <strong>
+          Looking for the strength training app? It's moved to <a href="https://palastripe.com">palastripe.com</a>
+        </strong>
+      </p>
       <h2 class="headline">Stories about writing code, starting a side business, and lifting weights.</h2>
 
         <div class="article-link-block">
@@ -46,44 +48,5 @@
         </div>
     </div>
   </div>
-  <script>
-    function getLocalStorageWorkouts() {
-      const workouts = localStorage.getItem('HBFF_HISTORY');
-
-      // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-      function fallbackCopyTextToClipboard(text) {
-        var textArea = document.createElement("textarea");
-        textArea.value = text;
-        // Avoid scrolling to bottom
-        textArea.style.top = "0";
-        textArea.style.left = "0";
-        textArea.style.position = "fixed";
-
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-        try {
-          var successful = document.execCommand('copy');
-          var msg = successful ? 'successful' : 'unsuccessful';
-          console.log('Fallback: Copying command was ' + msg);
-        } catch (err) {
-          console.error('Fallback: Oops, unable to copy', err);
-        }
-
-        document.body.removeChild(textArea);
-      }
-
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(workouts).then(function() {
-          console.log('Async: Copying to clipboard was successful!');
-        }, function(err) {
-          console.error('Async: Could not copy: ', err);
-        });
-      } else {
-        fallbackCopyTextToClipboard(workouts);
-      }
-    };
-  </script>
 </body>
 </html>

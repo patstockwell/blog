@@ -7,6 +7,7 @@ const collections = require('metalsmith-collections');
 const handlebars = require('handlebars');
 const dateFormatter = require('metalsmith-date-formatter');
 const inlineCss = require('metalsmith-inline-css');
+const highlight = require('highlight.js');
 // TODO: RSS feeds
 // TODO: word count - https://github.com/majodev/metalsmith-word-count
 
@@ -50,7 +51,7 @@ Metalsmith(__dirname)
   }))
   .use(markdown({
     highlight: function(code) {
-      return require('highlight.js').highlightAuto(code).value;
+      return highlight.highlightAuto(code).value;
     },
   }))
   .use(permalinks({
